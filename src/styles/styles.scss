@@ -1,0 +1,26 @@
+.container {
+  padding: 15px;
+}
+
+.header {
+	background: #cdcdcd;
+}
+
+.icon-caption {
+  vertical-align: text-top;
+}
+
+nav a {
+	cursor: pointer;
+}
+
+.header-detail-object {
+	background: #6b6868;
+	padding: 15px;
+	color: #ffffff;
+}
+
+.hover:hover {
+	cursor: pointer;
+	background: rgba(178, 196, 251, 0.87);
+}
