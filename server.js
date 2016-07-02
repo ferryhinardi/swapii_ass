@@ -6,7 +6,7 @@ app.use(compression());
 app.use('/', express.static(__dirname + '/dist'));
  
 app.get('*', function(req, res) {
-	res.sendFile(__dirname + '/index.html');
+	res.sendFile(__dirname + '/dist/index.html');
 })
  
 app.listen(process.env.PORT || 7000, function() {
