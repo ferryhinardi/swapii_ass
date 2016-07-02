@@ -3,7 +3,7 @@ var app = express();
 var compression = require('compression');
  
 app.use(compression());
-app.use('/', express.static(__dirname + '/'));
+app.use('/', express.static(__dirname + '/dist'));
  
 app.get('*', function(req, res) {
 	res.sendFile(__dirname + '/dist/index.html');
