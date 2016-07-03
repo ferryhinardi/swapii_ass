@@ -1,6 +1,6 @@
 # Swapi Apps
 
-[Base On swapi.co/api]
+[Based On swapi.co/api]
 
 Running Command:
 
