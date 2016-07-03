@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var compression = require('compression');
-var https = require('https');
  
 app.use(compression());
 app.use('/', express.static(__dirname + '/dist'));
