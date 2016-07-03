@@ -10,9 +10,6 @@ app.get('*', function(req, res) {
 	res.sendFile(__dirname + '/dist/index.html');
 })
 
-var httpsServer = https.createServer(app);
-httpsServer.listen(7000);
-/*
 app.listen(process.env.PORT || 7000, function() {
 	console.log(`Listening on Port: ${process.env.PORT || 7000}`);
-});*/
+});
