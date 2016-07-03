@@ -1,7 +1,7 @@
 import * as types from '../constants/actionTypes';
 import RequestHelper from '../utils/requestHelper';
-import { SWAPI_BASE_URL } from '../constants/config';
 
+const endpoint = 'films/'
 export function fetchFilmsStart() {
   return {
     type: types.FETCH_FILMS_START
@@ -24,10 +24,10 @@ export function receiveFilms(data) {
 export function fetchFilms() {
   return (dispatch) => {
     dispatch(fetchFilmsStart());
-    console.log(SWAPI_BASE_URL);
+    
     const payload = {
       method: 'get',
-      url: 'films'
+      url: endpoint
     };
 
     RequestHelper.request(payload)
@@ -65,7 +65,7 @@ export function fetchFilm(id) {
     dispatch(fetchFilmStart());
 
     const payload = {
-      url: `films/${id}`
+      url: `${endpoint}${id}/`
     };
 
     RequestHelper.request(payload)

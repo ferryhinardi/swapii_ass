@@ -1,6 +1,7 @@
 import * as types from '../constants/actionTypes';
 import RequestHelper from '../utils/requestHelper';
 
+const endpoint = 'planets/'
 export function fetchPlanetsStart() {
   return {
     type: types.FETCH_PLANETS_START
@@ -26,7 +27,7 @@ export function fetchPlanets() {
 
     const payload = {
       method: 'get',
-      url: 'planets'
+      url: endpoint
     };
 
     RequestHelper.request(payload)
@@ -64,7 +65,7 @@ export function fetchPlanet(id) {
     dispatch(fetchPlanetStart());
 
     const payload = {
-      url: `planets/${id}`
+      url: `${endpoint}${id}/`
     };
 
     RequestHelper.request(payload)

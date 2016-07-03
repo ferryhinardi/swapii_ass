@@ -1,6 +1,7 @@
 import * as types from '../constants/actionTypes';
 import RequestHelper from '../utils/requestHelper';
 
+const endpoint = 'species/'
 export function fetchSpeciesesStart() {
   return {
     type: types.FETCH_SPECIESES_START
@@ -26,7 +27,7 @@ export function fetchSpecieses() {
 
     const payload = {
       method: 'get',
-      url: 'species'
+      url: endpoint
     };
 
     RequestHelper.request(payload)
@@ -64,7 +65,7 @@ export function fetchSpecies(id) {
     dispatch(fetchSpeciesStart());
 
     const payload = {
-      url: `species/${id}`
+      url: `${endpoint}${id}/`
     };
 
     RequestHelper.request(payload)
