@@ -19,8 +19,8 @@
     "test:cover": "babel-node node_modules/isparta/bin/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
     "test:cover:travis": "babel-node node_modules/isparta/bin/isparta cover --root src --report lcovonly _mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
-    "start:dev": "npm-run-all --parallel test:watch open:src lint:watch",
-    "start": "node server.js"
+    "start": "npm-run-all --parallel test:watch open:src lint:watch",
+    "start:prod": "node server.js"
   },
   "author": "",
   "license": "MIT",
@@ -28,6 +28,7 @@
     "axios": "0.12.0",
     "compression": "1.6.2",
     "express": "4.14.0",
+    "https": "1.0.0",
     "lodash": "4.13.1",
     "object-assign": "4.1.0",
     "parse": "1.8.5",
@@ -39,7 +40,8 @@
     "react-router": "2.5.1",
     "react-router-redux": "4.0.5",
     "redux": "3.5.2",
-    "redux-thunk": "2.1.0"
+    "redux-thunk": "2.1.0",
+    "superagent": "2.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.10.1",
