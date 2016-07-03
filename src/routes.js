@@ -21,15 +21,9 @@ export default (
     <IndexRedirect to="/films" />
     <Route path="films" component={Films} />
     <Route path="films/:id" component={Film} />
-    <Redirect from="characters" to="people" />
-    <Redirect from="pilots" to="people" />
     <Route path="people" component={People} />
-    <Redirect from="characters/:id" to="people/:id" />
-    <Redirect from="pilots/:id" to="people/:id" />
     <Route path="people/:id" component={Person} />
-    <Redirect from="homeworld" to="planets" />
     <Route path="planets" component={Planets} />
-    <Redirect from="homeworld/:id" to="planets/:id" />
     <Route path="planets/:id" component={Planet} />
     <Route path="species" component={Specieses} />
     <Route path="species/:id" component={Species} />

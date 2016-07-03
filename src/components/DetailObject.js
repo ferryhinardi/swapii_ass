@@ -1,11 +1,10 @@
-import React, { Component, PropTypes } from 'react';
-import ReactMDL, { Grid, Cell } from 'react-mdl';
+import React, { Component } from 'react';
+import { Grid, Cell } from 'react-mdl';
 import { Link } from 'react-router';
 import StringHelper from '../utils/stringHelper';
 
 export default class DetialObject extends Component {
 	render() {
-		const width = (100 / Object.keys(this.props.fields).length);
 		return (
 			<div>
 					{
@@ -37,5 +36,5 @@ export default class DetialObject extends Component {
 					}
 			</div>
 		)
-	}
+	};
 }

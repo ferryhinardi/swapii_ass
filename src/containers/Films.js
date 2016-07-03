@@ -47,7 +47,7 @@ class Films extends React.Component {
     } else {
       const width = (100 / Object.keys(this.fields).length);
       return (
-        <List>
+        <List data-test="films-list">
           <ListItem style={{backgroundColor: '#cdcdcd'}}>
             {
               Object.keys(this.fields).map((field, i) => {

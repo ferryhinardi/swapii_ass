@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import ReactMDL, { List, ListItem, ListItemContent, ListItemAction } from 'react-mdl';
+import React, { Component } from 'react';
+import { ListItem, ListItemContent } from 'react-mdl';
 
 export default class ListObject extends Component {
 	render() {
@@ -9,10 +9,10 @@ export default class ListObject extends Component {
 		const { onRowClick } = this.props;
 		return (
 			<ListItem style={{cursor: 'pointer'}} className="hover" onClick={onRowClick}>
-				{ Object.keys(this.fields).map((field, i) => {
+				{Object.keys(this.fields).map((field, i) => {
 						return (
 							<ListItemContent style={{width: width}} key={i}>{this.data[field]}</ListItemContent>
-						)
+						);
 					})
 				}
 			</ListItem>

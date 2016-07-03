@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import {routerReducer} from 'react-router-redux';
 import filmsReducer from './filmsReducer';
 import peopleReducer from './peopleReducer';
 import planetsReducer from './planetsReducer';
 import speciesesReducer from './speciesesReducer';
 import starshipsReducer from './starshipsReducer';
 import vehiclesReducer from './vehiclesReducer';
+import fireReducer from './fireReducer';
 
 const rootReducer = combineReducers({
   films: filmsReducer,
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   specieses: speciesesReducer,
   starships: starshipsReducer,
   vehicles: vehiclesReducer,
-  routing: routerReducer
+  fireReducer: fireReducer
 });
 
 export default rootReducer;

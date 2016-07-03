@@ -1,7 +1,7 @@
 import * as types from '../constants/actionTypes';
 import RequestHelper from '../utils/requestHelper';
 
-const endpoint = 'vehicles/'
+const endpoint = 'vehicles/';
 export function fetchVehiclesStart() {
   return {
     type: types.FETCH_VEHICLES_START
@@ -71,7 +71,7 @@ export function fetchVehicle(id) {
     RequestHelper.request(payload)
       .then((res) => {
         dispatch(fetchVehicleDone());
-        dispatch(receiveVehicle(res.data))
+        dispatch(receiveVehicle(res.data));
       })
       .catch((res) => {
         console.log('Catch fetchVehicle: ', res); //eslint-disable-line

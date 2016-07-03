@@ -66,3 +66,9 @@ export const RECEIVE_VEHICLE = 'RECEIVE_VEHICLE';
 export const FETCH_MORE_VEHICLES_START = 'FETCH_MORE_FILM_START';
 export const FETCH_MORE_VEHICLES_DONE = 'FETCH_MORE_FILM_DONE';
 export const RECEIVE_MORE_VEHICLES = 'RECEIVE_MORE_FILM';
+
+/* FirebaseReducer */
+export const GRAB_START = 'GRAB_START';
+export const GRAB_END = 'GRAB_END';
+export const RECEIVE_GRAB = 'RECEIVE_GRAB';
+

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { browserHistory } from 'react-router';
-import ReactMDL, { Layout, Header, Drawer, Navigation, Content } from 'react-mdl';
+import { Layout, Header, Drawer, Navigation, Content } from 'react-mdl';
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class App extends Component {
       <div>
         <Layout>
           <Header waterfall className="header">
-            <Navigation>
+            <Navigation data-test="navigation">
               <a className="nav-item" to="/films" onClick={this.onMenuClick.bind(this)}> Films </a>
               <a className="nav-item" to="/people" onClick={this.onMenuClick.bind(this)}> People </a>
               <a className="nav-item" to="/planets" onClick={this.onMenuClick.bind(this)}> Planets </a>
@@ -48,7 +48,7 @@ class App extends Component {
       </div>
     );
   }
-};
+}
 
 App.propTypes = {
   children: PropTypes.element

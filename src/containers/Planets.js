@@ -46,7 +46,7 @@ class Planets extends React.Component {
     } else {
       const width = (80 / Object.keys(this.fields).length);
       return (
-        <List>
+        <List data-test="planets-list">
           <ListItem style={{backgroundColor: '#cdcdcd'}}>
             {
               Object.keys(this.fields).map((field, i) => {
