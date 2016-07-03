@@ -15,6 +15,6 @@ const config = {
 	}
 }
 
-// export const SWAPI_BASE_URL = url.format(config["prod"]);
-export const SWAPI_BASE_URL = '//swapi.co/api/';
+export const SWAPI_BASE_URL = url.format(config["prod"]);
+// export const SWAPI_BASE_URL = 'http://swapi.co/api/';
 
