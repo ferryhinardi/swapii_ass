@@ -2,7 +2,7 @@ import { GRAB_START, GRAB_END, RECEIVE_GRAB } from '../constants/actionTypes';
 const initialState = {
 	isFetching: false
 }
-export function fireReducer(state = initialState, action) {
+export default function fireReducer(state = initialState, action) {
 	switch (action.type) {
 		case GRAB_START:
 			return Object.assign({}, state, {
@@ -15,7 +15,10 @@ export function fireReducer(state = initialState, action) {
 		case RECEIVE_GRAB:
       return Object.assign({}, state, {
         isFetching: false,
-        data: action.base
+        data: action.data
       });
+
+    default:
+    	return state;
 	}
 }

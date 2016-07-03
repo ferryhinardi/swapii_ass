@@ -44,7 +44,8 @@ class Species extends React.Component {
       const params = this.props.specieses.detail;
       _.merge(params, {
         fields: this.fields,
-        goBack: this.goBack
+        goBack: this.goBack,
+        reducer: this.props.fireReducer.data
       })
       return (
           <DetailObject { ...params } />
@@ -56,7 +57,8 @@ class Species extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    specieses: state.specieses
+    specieses: state.specieses,
+    fireReducer: state.fireReducer
   };
 }
 

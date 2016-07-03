@@ -15,21 +15,26 @@ export default class DetialObject extends Component {
 										{this.props.fields[field]}
 									</Cell>
 
-									<Grid>
+									<Cell col={12}>
+										<Grid>
 										{
 											typeof(this.props[field]) === 'object' ?
 												Object.keys(this.props[field]).map((subField, i) => {
+													const routes = StringHelper.getRoutes(this.props[field][subField]),
+																routeId = StringHelper.getRoutesId(this.props[field][subField]);
+													// console.log(this.props.reducer, routes, routeId);
 													return (
-														<Cell col={6} className="hover" key={i}>
+														<Cell col={4} className="hover" key={i}>
 															<Link key={i} to={`/${StringHelper.getFullRoutes(this.props[field][subField])}`}>
-																{this.props[field][subField]}
+																{this.props.reducer[routes][routeId]}
 															</Link>
 														</Cell>
 													)
 												}) :
 											<Cell col={12}>{this.props[field]}</Cell>
 										}
-									</Grid>
+										</Grid>
+									</Cell>
 								</Grid>
 							)
 						})

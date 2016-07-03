@@ -1,5 +1,6 @@
 import * as types from '../constants/actionTypes';
 import RequestHelper from '../utils/requestHelper';
+import firebase from 'firebase';
 
 const endpoint = '';
 export function grabStart() {
@@ -25,18 +26,21 @@ export function fetchFireData() {
 	return (dispatch) => {
 		dispatch(grabStart());
 
-		const payload = {
-      method: 'get',
-      url: endpoint
-    };
+		firebase.initializeApp({
+      apiKey: "AIzaSyC24-qD8en4Jrot3Aglq8NYuz50NuQ73Sw",
+	    authDomain: "glaring-inferno-7571.firebaseapp.com",
+	    databaseURL: "https://glaring-inferno-7571.firebaseio.com",
+	    storageBucket: "glaring-inferno-7571.appspot.com",
+    });
 
-    RequestHelper.request(payload)
-      .then((res) => {
+    firebase.database().ref().once('value')
+      .then(snapshot => {
         dispatch(grabEnd());
-        dispatch(receiveGrab(res.data));
+        dispatch(receiveGrab(snapshot.val()));
       })
-      .catch((res) => {
+      .catch(res => {
         console.log('Catch fetch: ', res); //eslint-disable-line
+        dispatch(grabEnd());
       });
 	};
 }

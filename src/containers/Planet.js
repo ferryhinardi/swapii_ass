@@ -43,7 +43,8 @@ class Planet extends React.Component {
       const params = this.props.planets.detail;
       _.merge(params, {
         fields: this.fields,
-        goBack: this.goBack
+        goBack: this.goBack,
+        reducer: this.props.fireReducer.data
       })
       return (
           <DetailObject { ...params } />
@@ -55,7 +56,8 @@ class Planet extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    planets: state.planets
+    planets: state.planets,
+    fireReducer: state.fireReducer
   };
 }
 

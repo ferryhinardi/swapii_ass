@@ -50,6 +50,7 @@ export default function filmsReducer(state = initialState, action) {
 
     case RECEIVE_FILM:
       return Object.assign({}, state, {
+        isFetchingMore: false,
         detail: action.detail
       });
 

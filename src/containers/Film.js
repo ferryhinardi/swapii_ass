@@ -5,6 +5,7 @@ import { browserHistory, Link } from 'react-router';
 import { fetchFilm } from '../actions/filmsActions';
 import DetailObject from '../components/DetailObject';
 import _ from 'lodash';
+import StringHelper from '../utils/stringHelper';
 
 class Film extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class Film extends React.Component {
   }
 
   render() {
-    if (this.props.films.isFetching) {
+    if (this.props.films.isFetching || this.props.films.detail.title == undefined) {
       return (
         <div>Loading film data...</div>
       );
@@ -43,7 +44,8 @@ class Film extends React.Component {
       const params = this.props.films.detail;
       _.merge(params, {
         fields: this.fields,
-        goBack: this.goBack
+        goBack: this.goBack,
+        reducer: this.props.fireReducer.data
       })
       return (
           <DetailObject { ...params } />
@@ -55,7 +57,8 @@ class Film extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    films: state.films
+    films: state.films,
+    fireReducer: state.fireReducer
   };
 }
 

@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { browserHistory } from 'react-router';
 import { Layout, Header, Drawer, Navigation, Content } from 'react-mdl';
+import { fetchFireData } from '../actions/fireActions';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +15,10 @@ class App extends Component {
     browserHistory.replace({
       pathname: pathname
     });
+  }
+
+  componentDidMount() {
+    this.props.dispatch(fetchFireData());
   }
 
   render() {
@@ -54,4 +60,4 @@ App.propTypes = {
   children: PropTypes.element
 };
 
-export default App;
+export default connect()(App);

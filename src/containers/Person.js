@@ -45,7 +45,8 @@ class Person extends React.Component {
       const params = this.props.people.detail;
       _.merge(params, {
         fields: this.fields,
-        goBack: this.goBack
+        goBack: this.goBack,
+        reducer: this.props.fireReducer.data
       })
       return (
           <DetailObject { ...params } />
@@ -57,7 +58,8 @@ class Person extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    people: state.people
+    people: state.people,
+    fireReducer: state.fireReducer
   };
 }
 
