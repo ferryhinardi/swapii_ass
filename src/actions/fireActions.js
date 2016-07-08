@@ -1,7 +1,6 @@
 import * as types from '../constants/actionTypes';
 import RequestHelper from '../utils/requestHelper';
 import firebase from 'firebase';
-import configFirebase from '../../config.json'
 
 export function grabStart() {
 	return {
@@ -26,7 +25,12 @@ export function fetchFireData() {
 	return (dispatch) => {
 		dispatch(grabStart());
 
-		firebase.initializeApp(configFirebase);
+		firebase.initializeApp({
+			apiKey: "AIzaSyC24-qD8en4Jrot3Aglq8NYuz50NuQ73Sw",
+			authDomain: "glaring-inferno-7571.firebaseapp.com",
+			databaseURL: "https://glaring-inferno-7571.firebaseio.com",
+			storageBucket: "glaring-inferno-7571.appspot.com"
+		});
 
     firebase.database().ref().once('value')
       .then(snapshot => {
