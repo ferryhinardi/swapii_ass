@@ -1,12 +1,12 @@
 'use strict';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory, Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import { fetchSpecies } from '../actions/speciesesActions';
 import DetailObject from '../components/DetailObject';
 import _ from 'lodash';
 
-class Species extends React.Component {
+class Species extends Component {
   constructor(props) {
     super(props);
 
@@ -46,9 +46,9 @@ class Species extends React.Component {
         fields: this.fields,
         goBack: this.goBack,
         reducer: this.props.fireReducer.data
-      })
+      });
       return (
-          <DetailObject { ...params } />
+          <DetailObject {...params} />
       );
     }
   }
@@ -61,5 +61,12 @@ function mapStateToProps(state) {
     fireReducer: state.fireReducer
   };
 }
+
+Species.propTypes = {
+  routeParams: PropTypes.string,
+  specieses: PropTypes.object,
+  fireReducer: PropTypes.array,
+  dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(Species);

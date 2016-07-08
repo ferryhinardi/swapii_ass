@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Grid, Cell } from 'react-mdl';
 import { Link } from 'react-router';
 import StringHelper from '../utils/stringHelper';
@@ -29,17 +29,22 @@ export default class DetialObject extends Component {
 																{this.props.reducer[routes][routeId]}
 															</Link>
 														</Cell>
-													)
+													);
 												}) :
 											<Cell col={12}>{this.props[field]}</Cell>
 										}
 										</Grid>
 									</Cell>
 								</Grid>
-							)
+							);
 						})
 					}
 			</div>
-		)
-	};
+		);
+	}
 }
+
+DetialObject.propTypes = {
+	fields: PropTypes.object,
+	reducer: PropTypes.array
+};

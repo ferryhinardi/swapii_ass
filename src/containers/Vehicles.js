@@ -1,15 +1,15 @@
 'use strict';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { fetchVehicles, fetchMoreVehicles } from '../actions/vehiclesActions';
 import StringHelper from '../utils/stringHelper';
-import ReactMDL, { List, ListItem, ListItemContent } from 'react-mdl';
+import { List, ListItem, ListItemContent } from 'react-mdl';
 import ListObject from '../components/ListObject';
 import _ from 'lodash';
 import Infinite from 'react-infinite';
 
-class Vehicles extends React.Component {
+class Vehicles extends Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ class Vehicles extends React.Component {
   elementInfiniteLoad() {
     return (<div className="infinite-list-item">
           Loading...
-        </div>)
+        </div>);
   }
 
   render() {
@@ -70,7 +70,7 @@ class Vehicles extends React.Component {
                 fields: this.fields,
                 onRowClick: this.onRowClick.bind(this, vehicle)
               });
-              return <ListObject key={i} { ...vehicle } />;
+              return <ListObject key={i} {...vehicle} />;
             })
           }
           </Infinite>
@@ -86,5 +86,10 @@ function mapStateToProps(state) {
     vehicles: state.vehicles
   };
 }
+
+Vehicles.propTypes = {
+  vehicles: PropTypes.object,
+  dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(Vehicles);

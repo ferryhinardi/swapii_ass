@@ -9,16 +9,16 @@ class App extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.dispatch(fetchFireData());
+  }
+
   onMenuClick(e) {
     const pathname = e.target.getAttribute('to');
     
     browserHistory.replace({
       pathname: pathname
     });
-  }
-
-  componentDidMount() {
-    this.props.dispatch(fetchFireData());
   }
 
   render() {
@@ -57,7 +57,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.element,
+  dispatch: PropTypes.func
 };
 
 export default connect()(App);

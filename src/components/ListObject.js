@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ListItem, ListItemContent } from 'react-mdl';
 
 export default class ListObject extends Component {
@@ -19,3 +19,8 @@ export default class ListObject extends Component {
 		);
 	}
 }
+
+ListObject.propTypes = {
+	fields: PropTypes.object,
+	onRowClick: PropTypes.func
+};

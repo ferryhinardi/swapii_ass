@@ -1,15 +1,15 @@
 'use strict';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { fetchPeople, fetchMorePeople } from '../actions/peopleActions';
-import StringHelper from '../utils/stringHelper';
-import ReactMDL, { List, ListItem, ListItemContent } from 'react-mdl';
+import { List, ListItem, ListItemContent } from 'react-mdl';
 import ListObject from '../components/ListObject';
+import StringHelper from '../utils/stringHelper';
 import _ from 'lodash';
 import Infinite from 'react-infinite';
 
-class People extends React.Component {
+class People extends Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ class People extends React.Component {
   elementInfiniteLoad() {
     return (<div className="infinite-list-item">
           Loading...
-        </div>)
+        </div>);
   }
 
   render() {
@@ -70,7 +70,7 @@ class People extends React.Component {
                   fields: this.fields,
                   onRowClick: this.onRowClick.bind(this, people)
                 });
-                return <ListObject key={i} { ...people } />;
+                return <ListObject key={i} {...people} />;
               })
             }
           </Infinite>
@@ -85,5 +85,10 @@ function mapStateToProps(state) {
     people: state.people
   };
 }
+
+People.propTypes = {
+  people: PropTypes.object,
+  dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(People);

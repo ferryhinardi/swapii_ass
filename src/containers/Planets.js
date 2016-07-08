@@ -1,15 +1,15 @@
 'use strict';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { fetchPlanets, fetchMorePlanets } from '../actions/planetsActions';
 import StringHelper from '../utils/stringHelper';
-import ReactMDL, { List, ListItem, ListItemContent } from 'react-mdl';
+import { List, ListItem, ListItemContent } from 'react-mdl';
 import ListObject from '../components/ListObject';
 import _ from 'lodash';
 import Infinite from 'react-infinite';
 
-class Planets extends React.Component {
+class Planets extends Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ class Planets extends React.Component {
   elementInfiniteLoad() {
     return (<div className="infinite-list-item">
           Loading...
-        </div>)
+        </div>);
   }
 
   render() {
@@ -70,7 +70,7 @@ class Planets extends React.Component {
                 fields: this.fields,
                 onRowClick: this.onRowClick.bind(this, planet)
               });
-              return <ListObject key={i} { ...planet } />;
+              return <ListObject key={i} {...planet} />;
             })
           }
           </Infinite>
@@ -86,5 +86,10 @@ function mapStateToProps(state) {
     planets: state.planets
   };
 }
+
+Planets.propTypes = {
+  planets: PropTypes.object,
+  dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(Planets);

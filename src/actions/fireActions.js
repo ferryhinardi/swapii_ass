@@ -1,5 +1,4 @@
 import * as types from '../constants/actionTypes';
-import RequestHelper from '../utils/requestHelper';
 import firebase from 'firebase';
 
 export function grabStart() {

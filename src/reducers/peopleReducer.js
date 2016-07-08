@@ -18,9 +18,8 @@ const initialState = {
     previous: '',
     results: []
   },
-  detail: {},
+  detail: {}
 };
-
 export default function peopleReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_PEOPLE_START:
@@ -41,12 +40,12 @@ export default function peopleReducer(state = initialState, action) {
 
     case FETCH_PERSON_START:
       return Object.assign({}, state, {
-        isFetching: true,
+        isFetching: true
       });
 
     case FETCH_PERSON_DONE:
       return Object.assign({}, state, {
-        isFetching: false,
+        isFetching: false
       });
 
     case RECEIVE_PERSON:

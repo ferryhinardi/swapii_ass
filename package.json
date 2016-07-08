@@ -15,7 +15,7 @@
     "remove-dist": "rimraf ./dist",
     "prebuild": "npm run clean-dist",
     "build": "babel-node tools/build.js && npm run open:dist",
-    "start": "npm-run-all --parallel open:src",
+    "start": "npm-run-all --parallel open:src lint:watch",
     "start:prod": "node server.js",
     "test": "wdio wdio.conf.js"
   },

@@ -1,15 +1,15 @@
 'use strict';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { fetchStarships, fetchMoreStarships } from '../actions/starshipsActions';
 import StringHelper from '../utils/stringHelper';
-import ReactMDL, { List, ListItem, ListItemContent } from 'react-mdl';
+import { List, ListItem, ListItemContent } from 'react-mdl';
 import ListObject from '../components/ListObject';
 import _ from 'lodash';
 import Infinite from 'react-infinite';
 
-class Starships extends React.Component {
+class Starships extends Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ class Starships extends React.Component {
   elementInfiniteLoad() {
     return (<div className="infinite-list-item">
           Loading...
-        </div>)
+        </div>);
   }
 
   render() {
@@ -70,7 +70,7 @@ class Starships extends React.Component {
                 fields: this.fields,
                 onRowClick: this.onRowClick.bind(this, starship)
               });
-              return <ListObject key={i} { ...starship } />;
+              return <ListObject key={i} {...starship} />;
             })
           }
           </Infinite>
@@ -78,7 +78,6 @@ class Starships extends React.Component {
       );
     }
   }
-
 }
 
 function mapStateToProps(state) {
@@ -86,5 +85,10 @@ function mapStateToProps(state) {
     starships: state.starships
   };
 }
+
+Starships.propTypes = {
+  starships: PropTypes.object,
+  dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(Starships);

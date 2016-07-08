@@ -1,12 +1,12 @@
 'use strict';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory, Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import { fetchPlanet } from '../actions/planetsActions';
 import DetailObject from '../components/DetailObject';
 import _ from 'lodash';
 
-class Planet extends React.Component {
+class Planet extends Component {
   constructor(props) {
     super(props);
 
@@ -45,9 +45,9 @@ class Planet extends React.Component {
         fields: this.fields,
         goBack: this.goBack,
         reducer: this.props.fireReducer.data
-      })
+      });
       return (
-          <DetailObject { ...params } />
+          <DetailObject {...params} />
       );
     }
   }
@@ -60,5 +60,12 @@ function mapStateToProps(state) {
     fireReducer: state.fireReducer
   };
 }
+
+Planet.propTypes = {
+  routeParams: PropTypes.string,
+  planets: PropTypes.object,
+  fireReducer: PropTypes.array,
+  dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(Planet);

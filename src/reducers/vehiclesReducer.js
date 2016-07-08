@@ -17,7 +17,7 @@ const initialState = {
     previous: '',
     results: []
   },
-  detail: {},
+  detail: {}
 };
 
 export default function vehiclesReducer(state = initialState, action) {
@@ -40,12 +40,12 @@ export default function vehiclesReducer(state = initialState, action) {
 
     case FETCH_VEHICLE_START:
       return Object.assign({}, state, {
-        isFetching: true,
+        isFetching: true
       });
 
     case FETCH_VEHICLE_DONE:
       return Object.assign({}, state, {
-        isFetching: false,
+        isFetching: false
       });
 
     case RECEIVE_VEHICLE:

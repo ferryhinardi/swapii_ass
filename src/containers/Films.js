@@ -1,21 +1,21 @@
 'use strict';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { fetchFilms, fetchMoreFilms } from '../actions/filmsActions';
 import StringHelper from '../utils/stringHelper';
-import ReactMDL, { List, ListItem, ListItemContent } from 'react-mdl';
+import { List, ListItem, ListItemContent } from 'react-mdl';
 import ListObject from '../components/ListObject';
 import _ from 'lodash';
 import Infinite from 'react-infinite';
 
-class Films extends React.Component {
+class Films extends Component {
   constructor(props) {
     super(props);
 
     this.fields = {
       title: 'Title',
-      opening_crawl: 'Description',
+      opening_crawl: 'Description'
     };
   }
 
@@ -36,7 +36,7 @@ class Films extends React.Component {
   elementInfiniteLoad() {
     return (<div className="infinite-list-item">
           Loading...
-        </div>)
+        </div>);
   }
 
   render() {
@@ -71,7 +71,7 @@ class Films extends React.Component {
                 fields: this.fields,
                 onRowClick: this.onRowClick.bind(this, film)
               });
-              return <ListObject key={i} { ...film } />;
+              return <ListObject key={i} {...film} />;
             })
           }
           </Infinite>
@@ -87,5 +87,10 @@ function mapStateToProps(state) {
     films: state.films
   };
 }
+
+Films.propTypes = {
+  films: PropTypes.object,
+  dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(Films);

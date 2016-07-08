@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRedirect, Redirect } from 'react-router';
+import { Route, IndexRedirect } from 'react-router';
 
 import App from './components/App';
 import Films from './containers/Films';

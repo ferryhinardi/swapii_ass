@@ -1,13 +1,12 @@
 'use strict';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory, Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import { fetchFilm } from '../actions/filmsActions';
 import DetailObject from '../components/DetailObject';
 import _ from 'lodash';
-import StringHelper from '../utils/stringHelper';
 
-class Film extends React.Component {
+class Film extends Component {
   constructor(props) {
     super(props);
 
@@ -46,9 +45,9 @@ class Film extends React.Component {
         fields: this.fields,
         goBack: this.goBack,
         reducer: this.props.fireReducer.data
-      })
+      });
       return (
-          <DetailObject { ...params } />
+        <DetailObject {...params} />
       );
     }
   }
@@ -61,5 +60,12 @@ function mapStateToProps(state) {
     fireReducer: state.fireReducer
   };
 }
+
+Film.propTypes = {
+  routeParams: PropTypes.string,
+  films: PropTypes.object,
+  fireReducer: PropTypes.array,
+  dispatch: PropTypes.func
+};
 
 export default connect(mapStateToProps)(Film);
